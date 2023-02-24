@@ -1,0 +1,10 @@
+name: trf2gffdev
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - conda-forge::python=3.10
+  - bioconda::trf
+ #- pip:
+ #  - packagefrompip
