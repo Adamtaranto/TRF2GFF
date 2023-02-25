@@ -32,6 +32,6 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 Convert dat file to gff3:
 
 ```bash
-trf2gff -d trf_output.dat
+trf2gff -i trf_output.dat
 # Output: genome.fa.2.6.6.80.10.50.2000.gff3
 ```
