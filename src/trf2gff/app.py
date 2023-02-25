@@ -48,7 +48,7 @@ def mainArgs():
         version="%(prog)s {version}".format(version=__version__),
     )
     parser.add_argument(
-        "-d", "--datfile", type=str, required=True, help="dat file output from TRF."
+        "-i", "--infile", type=str, required=True, help="dat file output from TRF."
     )
     parser.add_argument(
         "-o", "--outgff", type=str, default=None, help="Name of gff output file."
@@ -63,7 +63,7 @@ def mainArgs():
 
     # Set outfile with basename of datfile if outfile name not provided
     if not args.outgff:
-        args.outgff = op.splitext(args.datfile)[0] + ".gff3"
+        args.outgff = op.splitext(args.infile)[0] + ".gff3"
 
     return args
 
@@ -82,12 +82,12 @@ def main():
         format="%(asctime)s:%(levelname)s:%(name)s:%(message)s", level=numeric_level
     )
 
-    if not op.exists(args.datfile):
-        logging.error(f"dat file not found: {args.datfile}")
+    if not op.exists(args.infile):
+        logging.error(f"dat file not found: {args.infile}")
         sys.exit(1)
 
-    logging.info(f"Reading datfile: {args.datfile}")
-    with open(args.datfile) as fh:
+    logging.info(f"Reading datfile: {args.infile}")
+    with open(args.infile) as fh:
         # Unpack lines from file
         lines = list(line for line in (ln.rstrip() for ln in fh) if line)
 
