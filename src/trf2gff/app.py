@@ -35,6 +35,7 @@ import argparse
 import logging
 import os.path as op
 import sys
+import csv
 
 
 def mainArgs():
@@ -48,10 +49,19 @@ def mainArgs():
         version="%(prog)s {version}".format(version=__version__),
     )
     parser.add_argument(
-        "-i", "--infile", type=str, required=True, help="dat file output from TRF."
+        "-i",
+        "--infile",
+        type=str,
+        default=None,
+        required=False,
+        help="dat file output from TRF.",
     )
     parser.add_argument(
-        "-o", "--outgff", type=str, default=None, help="Name of gff output file."
+        "-o",
+        "--outgff",
+        type=str,
+        default=None,
+        help="Name of gff output file. Set to '-' to write to stdout.",
     )
     parser.add_argument(
         "--loglevel",
@@ -61,9 +71,11 @@ def mainArgs():
     )
     args = parser.parse_args()
 
-    # Set outfile with basename of datfile if outfile name not provided
-    if not args.outgff:
+    # Set outfile with basename of datfile if outfile name not provided and not data on stdin.
+    if not args.outgff and sys.stdin.isatty() and args.infile:
         args.outgff = op.splitext(args.infile)[0] + ".gff3"
+    elif not args.outgff:
+        args.outgff = "-"
 
     return args
 
@@ -82,14 +94,29 @@ def main():
         format="%(asctime)s:%(levelname)s:%(name)s:%(message)s", level=numeric_level
     )
 
-    if not op.exists(args.infile):
-        logging.error(f"dat file not found: {args.infile}")
+    if not sys.stdin.isatty():
+        # If data on stdin, set input_data to read from stdin
+        logging.info(f"Reading input from stdin.")
+        input_data = sys.stdin.readlines()
+        if args.infile:
+            # If infile is also set log that it will be ignored
+            logging.warning(
+                f"Ignoring --infile arg {args.infile} and reading data from stdin."
+            )
+    elif args.infile:
+        # If infile is set, check if it exists
+        if not op.exists(args.infile):
+            logging.error(f"dat file not found: {args.infile}")
+            sys.exit(1)
+        else:
+            # If file exists, readlines from file
+            logging.info(f"Reading datfile: {args.infile}")
+            with open(args.infile, "r") as fh:
+                input_data = fh.readlines()
+    else:
+        # Exit if no data on stdin or infile
+        logging.error(f"No input data detected. Exiting.")
         sys.exit(1)
-
-    logging.info(f"Reading datfile: {args.infile}")
-    with open(args.infile) as fh:
-        # Unpack lines from file
-        lines = list(line for line in (ln.rstrip() for ln in fh) if line)
 
     # Init feature counter
     counter = 0
@@ -100,6 +127,9 @@ def main():
 
     # Init gff line list
     outlines = list()
+
+    # Preprocess incomming data to remove blank lines
+    lines = [line for line in (ln.rstrip() for ln in input_data) if line]
 
     for line in lines:
         # Split line in space delimited elements
@@ -163,18 +193,26 @@ def main():
                 + ";cons_seq="
                 + cons_seq
                 + ";repeat_seq="
-                + repeat_seq
-                + "\n",
+                + repeat_seq,
             ]
             outlines.append(gff_line)
 
     logging.info(f"Converted {counter} features from {seq_count} sequences.")
 
-    logging.info(f"Writing gff to file: {args.outgff}")
-    f = open(args.outgff, "w")
-    for gffline in outlines:
-        f.write("\t".join(gffline))
-    f.close()
+    # If outfile set write gfflines to file.
+    if args.outgff != "-":
+        logging.info(f"Writing gff to file: {args.outgff}")
+        with open(args.outgff, "w") as f:
+            # Create csv writer with tab delimiters.
+            csv_writer = csv.writer(f, delimiter="\t")
+            # Convert list items to csv lines and write.
+            csv_writer.writerows(outlines)
+    else:
+        logging.info(f"Writing gff to stdout")
+        # Create csv writer with tab delimiters.
+        csv_writer = csv.writer(sys.stdout, delimiter="\t")
+        # Convert list items to csv lines and write.
+        csv_writer.writerows(outlines)
 
     logging.info("Done!")
 

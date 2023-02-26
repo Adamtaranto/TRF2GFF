@@ -32,6 +32,21 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 Convert dat file to gff3:
 
 ```bash
-trf2gff -i trf_output.dat
+# Read from infile and write gff to default outfile
+trf2gff -i genome.fa.2.6.6.80.10.50.2000.dat 
 # Output: genome.fa.2.6.6.80.10.50.2000.gff3
+
+# Read input from stdin and write to stdout
+trf2gff -o - < genome.fa.2.6.6.80.10.50.2000.dat > genome.gff3
+# Output: genome.gff3
+
+# Read from stdin and write to file
+trf2gff -o genome.gff3 < genome.fa.2.6.6.80.10.50.2000.dat
+# Output: genome.gff3
+```
+
+Use `bedtools getfasta` to extract trf features from genome:
+
+```bash
+bedtools getfasta -fi genome.fa -bed genome.gff3
 ```
