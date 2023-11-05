@@ -38,15 +38,20 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 
 Convert dat file to gff3:
 
+Here are three examples of how you can use trf2gff.
+
 ```bash
+# Option 1:
 # Read from infile and write gff to default outfile
 trf2gff -i genome.fa.2.6.6.80.10.50.2000.dat 
 # Output: genome.fa.2.6.6.80.10.50.2000.gff3
 
+# Option 2:
 # Read input from stdin and write to stdout
 trf2gff -o - < genome.fa.2.6.6.80.10.50.2000.dat > genome.gff3
 # Output: genome.gff3
 
+# Option 3:
 # Read from stdin and write to file
 trf2gff -o genome.gff3 < genome.fa.2.6.6.80.10.50.2000.dat
 # Output: genome.gff3
