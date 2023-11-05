@@ -4,27 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trf2gff"
-authors = [
-    {name = "Adam Taranto", email = "adam.p.taranto@gmail.com"},
-]
+authors = [{ name = "Adam Taranto", email = "adam.p.taranto@gmail.com" }]
 
 description = "Convert Tandem Repeat Finder dat file output into gff3 format."
 readme = "README.md"
 requires-python = ">=3.7"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "License :: OSI Approved :: MIT License",
-    ]
+]
 
-dynamic = ["version","dependencies"]
+dynamic = ["version", "dependencies"]
+
+[tool.setuptools_scm]
+write_to = "src/trf2gff/_version.py"
 
 [tool.setuptools.dynamic]
-version = {attr = "trf2gff.__version__"}
-dependencies = {file = "requirements.txt"}
+#version = {attr = "trf2gff.__version__"}
+dependencies = { file = "requirements.txt" }
 
 [project.urls]
 homepage = "https://github.com/adamtaranto/TRF2GFF"
