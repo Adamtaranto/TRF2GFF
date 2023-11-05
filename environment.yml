@@ -4,7 +4,11 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - conda-forge::python=3.10
+  - conda-forge::python=3.12
   - bioconda::trf
- #- pip:
- #  - packagefrompip
+  - pip
+  - pip:
+      - black
+      - setuptools_scm
+      - build
+      - twine
