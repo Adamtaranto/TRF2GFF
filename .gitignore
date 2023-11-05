@@ -4,6 +4,9 @@ temp/
 tests/
 pkg-mgt/
 
+# Versioning
+src/trf2gff/_version.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
