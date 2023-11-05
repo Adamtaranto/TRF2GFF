@@ -30,7 +30,7 @@ Converts Tandem Repeat Finder .dat file output into GFF3 format
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from trf2gff import __version__
+from trf2gff._version import __version__
 import argparse
 import logging
 import os.path as op
