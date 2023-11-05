@@ -1,0 +1,5 @@
+include LICENSE
+exclude .gitpod.Dockerfile
+exclude .gitpod.yml
+exclude environment.yml
+prune .devcontainer
