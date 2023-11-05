@@ -4,3 +4,4 @@ exclude .gitpod.yml
 exclude environment.yml
 exclude .gitignore
 prune .devcontainer
+prune tests
