@@ -32,10 +32,10 @@ Converts Tandem Repeat Finder .dat file output into GFF3 format
 
 from trf2gff._version import __version__
 import argparse
+import csv
 import logging
 import os.path as op
 import sys
-import csv
 
 
 def mainArgs():
