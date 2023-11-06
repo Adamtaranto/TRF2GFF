@@ -27,7 +27,7 @@ pip install -e .
 
 ## Useage
 
-Run trf:
+**Run trf**
 
 ```bash
 trf genome.fa 2 6 6 80 10 50 2000 -h
@@ -36,9 +36,9 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 ```
 
 
-Convert dat file to gff3:
+**Convert .dat file to gff3**
 
-Here are three examples of how you can use trf2gff.
+Here are three examples of how you can use `trf2gff` to process a `trf` .dat file
 
 ```bash
 # Option 1:
@@ -57,7 +57,9 @@ trf2gff -o genome.gff3 < genome.fa.2.6.6.80.10.50.2000.dat
 # Output: genome.gff3
 ```
 
-Use `bedtools getfasta` to extract trf features from genome:
+**Extract annotated tandem-repeat features**
+
+Use `bedtools getfasta` to extract trf features from genome.
 
 ```bash
 bedtools getfasta -fi genome.fa -bed genome.gff3
