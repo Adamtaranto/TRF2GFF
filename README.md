@@ -25,7 +25,7 @@ git clone https://github.com/Adamtaranto/TRF2GFF.git && cd TRF2GFF
 pip install -e .
 ```
 
-## Useage
+## Usage
 
 **Run trf**
 
