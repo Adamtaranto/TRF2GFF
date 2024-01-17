@@ -8,7 +8,7 @@ authors = [{ name = "Adam Taranto", email = "adam.p.taranto@gmail.com" }]
 
 description = "Convert Tandem Repeat Finder dat file output into gff3 format."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 license = { text = "MIT" }
 
 classifiers = [
