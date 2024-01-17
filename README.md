@@ -12,6 +12,8 @@ Converts Tandem Repeat Finder .dat file output into GFF3 format.
 
 ## Installation
 
+TRF2GFF requires Python >= v3.8
+
 Install directly from this git repository.
 
 ```bash
