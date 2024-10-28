@@ -1,7 +1,5 @@
 #Testing
-data/
 temp/
-tests/
 pkg-mgt/
 
 # Versioning
@@ -112,5 +110,4 @@ ENV/
 # macOS (optional)
 .DS_Store
 
-# Visual Studio Code (optional)
-.vscode
+
