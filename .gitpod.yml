@@ -9,18 +9,11 @@ tasks:
       conda env update -n base --file environment.yml
     # Run on every workspace start
     command: |
-      echo 'Installing requirements.txt'
-      pip3 install -r requirements.txt
-      echo 'Installing trf2gff in development mode.'
-      python setup.py --version
+      echo 'Installing TRF2GFF in interactive mode.'
       pip3 install -e .
-      echo 'Finished!'
 
 vscode:
   extensions:
     - eamodio.gitlens
     - ms-python.python
-    - ms-toolsai.jupyter
-    - ms-toolsai.jupyter-keymap
     - oderwat.indent-rainbow
-    - ms-python.black-formatter
