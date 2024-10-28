@@ -1,14 +1,10 @@
-name: trf2gffdev
+name: trf2gff
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
-  - conda-forge::python=3.12
+  - python=3.12
   - bioconda::trf
   - pip
   - pip:
-      - black
-      - setuptools_scm
-      - build
-      - twine
+      - hatch
