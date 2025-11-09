@@ -1,3 +1,5 @@
+# TRF2GFF
+
 ```text
 ████████╗██████╗ ███████╗██████╗  ██████╗ ███████╗███████╗
 ╚══██╔══╝██╔══██╗██╔════╝╚════██╗██╔════╝ ██╔════╝██╔════╝
@@ -28,7 +30,7 @@ pip install -e .
 
 ## Usage
 
-**Run trf**
+### Run trf
 
 ```bash
 trf genome.fa 2 6 6 80 10 50 2000 -h
@@ -36,7 +38,7 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 # Output: genome.fa.2.6.6.80.10.50.2000.dat
 ```
 
-**Convert .dat file to gff3**
+### Convert .dat file to gff3
 
 Here are three examples of how you can use `trf2gff` to process a `trf` .dat file
 
@@ -57,7 +59,7 @@ trf2gff -o genome.gff3 < genome.fa.2.6.6.80.10.50.2000.dat
 # Output: genome.gff3
 ```
 
-**Extract annotated tandem-repeat features**
+### Extract annotated tandem-repeat features
 
 Use `bedtools getfasta` to extract trf features from genome.
 
