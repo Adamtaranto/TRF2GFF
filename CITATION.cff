@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "TRF2GFF"
+version: 0.1.0
+date-released: 2025-11-09
+authors:
+  - family-names: Taranto
+    given-names: Adam
+    orcid: https://orcid.org/0000-0003-4759-3475
+    affiliation: "The University of Melbourne"
+repository-code: "https://github.com/Adamtaranto/TRF2GFF"
+license: GPL-3.0-or-later
+abstract: >-
+  Convert Tandem Repeat Finder .dat file output into GFF3 format.
+keywords:
+  - genomics
+  - SSR
+  - bioinformatics
