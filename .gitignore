@@ -1,6 +1,7 @@
 #Testing
 temp/
 pkg-mgt/
+.ideas/
 
 # Versioning
 src/trf2gff/_version.py
@@ -109,5 +110,3 @@ ENV/
 
 # macOS (optional)
 .DS_Store
-
-
