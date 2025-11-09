@@ -1,14 +1,13 @@
-
-```
+```text
 ████████╗██████╗ ███████╗██████╗  ██████╗ ███████╗███████╗
 ╚══██╔══╝██╔══██╗██╔════╝╚════██╗██╔════╝ ██╔════╝██╔════╝
-   ██║   ██████╔╝█████╗   █████╔╝██║  ███╗█████╗  █████╗  
-   ██║   ██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══╝  ██╔══╝  
-   ██║   ██║  ██║██║     ███████╗╚██████╔╝██║     ██║     
-   ╚═╝   ╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝     ╚═╝     
+   ██║   ██████╔╝█████╗   █████╔╝██║  ███╗█████╗  █████╗
+   ██║   ██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══╝  ██╔══╝
+   ██║   ██║  ██║██║     ███████╗╚██████╔╝██║     ██║
+   ╚═╝   ╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝     ╚═╝
 ```
-Converts Tandem Repeat Finder .dat file output into GFF3 format.
 
+Converts Tandem Repeat Finder .dat file output into GFF3 format.
 
 ## Installation
 
@@ -37,7 +36,6 @@ trf genome.fa 2 6 6 80 10 50 2000 -h
 # Output: genome.fa.2.6.6.80.10.50.2000.dat
 ```
 
-
 **Convert .dat file to gff3**
 
 Here are three examples of how you can use `trf2gff` to process a `trf` .dat file
@@ -45,7 +43,7 @@ Here are three examples of how you can use `trf2gff` to process a `trf` .dat fil
 ```bash
 # Option 1:
 # Read from infile and write gff to default outfile
-trf2gff -i genome.fa.2.6.6.80.10.50.2000.dat 
+trf2gff -i genome.fa.2.6.6.80.10.50.2000.dat
 # Output: genome.fa.2.6.6.80.10.50.2000.gff3
 
 # Option 2:
