@@ -15,16 +15,16 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: astral-sh/ruff-action@v3
         with:
-          src: "./src/teloclip ./tests"
+          src: "./src ./tests"
           args: "format"
       - uses: astral-sh/ruff-action@v3
         with:
-          src: "./src/teloclip ./tests"
+          src: "./src ./tests"
           args: "check --fix"
       - uses: isort/isort-action@v1
         with:
           configuration: "--settings-path=./pyproject.toml"
-          paths: "./src/teloclip ./tests"
+          paths: "./src ./tests"
       - uses: stefanzweifel/git-auto-commit-action@v7
         id: auto-commit-action
         with:
