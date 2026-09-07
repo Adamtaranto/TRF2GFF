@@ -18,5 +18,5 @@ jobs:
       - uses: Adamtaranto/citation-sync-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          use-pull-request: false
+          use-pull-request: true
           update-mode: "match"
