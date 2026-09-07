@@ -32,4 +32,4 @@ Process stdin and write to stdout:
 
 from trf2gff._version import __version__
 
-__all__ = ["__version__"]
+__all__ = ['__version__']
