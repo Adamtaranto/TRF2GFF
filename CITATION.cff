@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "TRF2GFF"
 version: 0.1.1
-date-released: 2026-11-07
+date-released: 2026-09-07
 authors:
   - family-names: Taranto
     given-names: Adam
