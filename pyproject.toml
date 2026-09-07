@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "trf2gff"
 authors = [{ name = "Adam Taranto", email = "adam.p.taranto@gmail.com" }]
 description = "Convert Tandem Repeat Finder dat file output into gff3 format."
-license = { text = "GPL" }
+license = { text = "GPL-3.0-or-later" }
 readme = "README.md"
 requires-python = ">=3.8"
 
@@ -19,7 +19,6 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
-
 
 # Optional dependencies for testing
 [project.optional-dependencies]
@@ -75,17 +74,22 @@ select = [
     "W", # pycodestyle warning rules
     "B", # flake8-bugbear rules
     "I", # isort rules
+    "D", # pydocstyle rules
 ]
 ignore = [
     "C901", # max-complexity-10
     "E501", # line-too-long
-    "I001", # isort-imports
     "B905", # `zip()` without an explicit `strict=` parameter
 ]
 
 [tool.ruff.format]
 indent-style = "space"
 quote-style = "single"
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+known-first-party = ["trf2gff"]
+known-third-party = []
 
 [tool.isort]
 profile = "black"
@@ -112,3 +116,17 @@ override_SS05 = [ # allow docstrings to start with these words
     '^Assess ',
     '^Access ',
 ]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pydocstyle]
+convention = "numpy"
+# Ignore files in directories named "tests"
+match-dir = "((?!tests).)*"
