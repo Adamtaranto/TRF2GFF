@@ -31,7 +31,7 @@ repos:
       - id: isort
         args: ["--profile", "black"]
   - repo: https://github.com/numpy/numpydoc
-    rev: v1.11.0rc0
+    rev: v1.11.0
     hooks:
       - id: numpydoc-validation
         exclude: (tests/|docs/).*
